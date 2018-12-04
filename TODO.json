@@ -1,0 +1,88 @@
+{
+    "Lab Section": 13,
+    "Last Modified": 2018-10-23,
+    "OU ID": 113419433,
+    "OU EMAIL": tweaver@ou.edu,
+    "Tasks": [
+        {
+            "Description": "Initialize hash map, tree map, and enum map",
+            "Estimated Time (Minutes)": 10,
+            "Actual Time (Minutes)": 8
+        },
+        {
+            "Description": "Create new variables and methods based on UML diagram",
+            "Estimated Time (Minutes)": 15,
+            "Actual Time (Minutes)": 13
+        },
+        {
+            "Description": "Change parseParamHeader method",
+            "Estimated Time (Minutes)": 10,
+            "Actual Time (Minutes)": 8
+        },
+        {
+            "Description": "Create getIndexOf method",
+            "Estimated Time (Minutes)": 15,
+            "Actual Time (Minutes)": 14
+        },
+        {
+            "Description": "Create CalculateAllStatistics method",
+            "Estimated Time (Minutes)": 15,
+            "Actual Time (Minutes)": 18
+        },
+        {
+            "Description": "Create prepareDataCatalog method",
+            "Estimated Time (Minutes)": 15,
+            "Actual Time (Minutes)": 25
+        },
+        {
+            "Description": "Create getStatistics method",
+            "Estimated Time (Minutes)": 10,
+            "Actual Time (Minutes)": 13
+        },
+        {
+            "Description": "Change calulateStatistics method",
+            "Estimated Time (Minutes)": 5,
+            "Actual Time (Minutes)": 2
+        },
+        {
+            "Description": "Change MapData method",
+            "Estimated Time (Minutes)": 5,
+            "Actual Time (Minutes)": 3
+        },
+        {
+            "Description": "Update parseFile method",
+            "Estimated Time (Minutes)": 10,
+            "Actual Time (Minutes)": 18
+        },
+        {
+            "Description": "Update toString method",
+            "Estimated Time (Minutes)": 10,
+            "Actual Time (Minutes)": 20
+        },
+		{
+            "Description": "Update Statistics constructor",
+            "Estimated Time (Minutes)": 5,
+            "Actual Time (Minutes)": 3
+        },
+        {
+            "Description": "Create new Statistics methods",
+            "Estimated Time (Minutes)": 15,
+            "Actual Time (Minutes)": 13
+        },
+        {
+            "Description": "Update MapData Tests",
+            "Estimated Time (Minutes)": 20,
+            "Actual Time (Minutes)": 23
+        },
+        {
+            "Description": "Update Statistics Tests",
+            "Estimated Time (Minutes)": 15,
+            "Actual Time (Minutes)": 20
+        },
+        {
+            "Description": "Correct Observation Tests",
+            "Estimated Time (Minutes)": 10,
+            "Actual Time (Minutes)": 7
+        },             
+    ]
+}
