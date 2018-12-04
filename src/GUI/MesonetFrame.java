@@ -5,12 +5,18 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class MesonetFrame extends JFrame
 {
+    private ParameterPanel paramPanel;
+    
     public MesonetFrame()
     {
         super("Mesonet");
-        setLayout(new BorderLayout());        
+        setLayout(new BorderLayout());
         
-        setSize(650, 400);
+        paramPanel = new ParameterPanel();
+        
+        add(paramPanel, BorderLayout.WEST);
+        
+        setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         setVisible(true);
