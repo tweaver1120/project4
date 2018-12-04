@@ -1,3 +1,4 @@
+package DataCollection;
 
 /**
  * Stats Type enumeration 

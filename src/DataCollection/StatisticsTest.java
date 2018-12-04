@@ -1,3 +1,4 @@
+package DataCollection;
 
 import static org.junit.Assert.*;
 import java.text.ParseException;

@@ -1,3 +1,4 @@
+package DataCollection;
 
 /**
  * Observation class 
