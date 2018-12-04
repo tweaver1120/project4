@@ -1,4 +1,9 @@
 package DataCollection;
+
+import javax.swing.SwingUtilities;
+
+import GUI.MesonetFrame;
+
 /**
  * Driver class 
  * 
@@ -8,8 +13,10 @@ package DataCollection;
  */
 public class Driver     
 {
+    
 	public static void main(String[] args)
 	{
+	    /**
 		final int YEAR = 2018;     
         final int MONTH = 8; 
         final int DAY = 30;
@@ -19,6 +26,14 @@ public class Driver
 
         MapData mapData = new MapData(YEAR, MONTH, DAY, HOUR, MINUTE, directory); 
 
-        System.out.println(mapData);         
+        System.out.println(mapData);    
+        **/
+	    
+        SwingUtilities.invokeLater(new Runnable()
+        {
+            public void run() {
+                new MesonetFrame();
+            }
+        });
 	}
 }  
