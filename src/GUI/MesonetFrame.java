@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 public class MesonetFrame extends JFrame
 {
     private ParameterPanel paramPanel;
+    private StatisticsPanel statisticsPanel;
     
     public MesonetFrame()
     {
@@ -13,8 +14,10 @@ public class MesonetFrame extends JFrame
         setLayout(new BorderLayout());
         
         paramPanel = new ParameterPanel();
+        statisticsPanel = new StatisticsPanel();
         
         add(paramPanel, BorderLayout.WEST);
+        add(statisticsPanel, BorderLayout.EAST);
         
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
