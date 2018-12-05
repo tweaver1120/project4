@@ -23,6 +23,7 @@ public class MesonetFrame extends JFrame
     private TablePanel tablePanel;
     private BottomPanel bottomPanel;
     private TopBarFileMenu fileMenu;
+    private boolean flag = false;
     
     private MapData fileInfo = new MapData(0,0,0,0,0,"fileName");
     protected MapData dataInfo;
@@ -70,7 +71,7 @@ public class MesonetFrame extends JFrame
         public void actionPerformed(ActionEvent e)
         {
             
-            if (e.getSource() == calculate)
+            if (e.getSource() == calculate && flag == true)
             {               
                 if (paramPanel.TAIRSelected(e))
                 {
@@ -170,7 +171,77 @@ public class MesonetFrame extends JFrame
                         tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "SRAD").getUTCDateTimeString()), 2, 5);
                     } 
                 }
+                
+                if (paramPanel.WSPDSelected(e))
+                {
+                    if (statisticsPanel.maxSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "WSPD").getStid()), 3, 0);
+                        tablePanel.getTableModel().setTableModel("WSPD", 3, 1);
+                        tablePanel.getTableModel().setTableModel("MAXIMUM", 3, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "WSPD").getValue()), 3, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "WSPD").getNumberOfReportingStations()), 3, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "WSPD").getUTCDateTimeString()), 3, 5);
+                    }
+                    
+                    if (statisticsPanel.minSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "WSPD").getStid()), 3, 0);
+                        tablePanel.getTableModel().setTableModel("WSPD", 3, 1);
+                        tablePanel.getTableModel().setTableModel("MINIMUM", 3, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "WSPD").getValue()), 3, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "WSPD").getNumberOfReportingStations()), 3, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "WSPD").getUTCDateTimeString()), 3, 5);
+                    }
+                    
+                    if (statisticsPanel.avgSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "WSPD").getStid()), 3, 0);
+                        tablePanel.getTableModel().setTableModel("WSPD", 3, 1);
+                        tablePanel.getTableModel().setTableModel("AVERAGE", 3, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "WSPD").getValue()), 3, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "WSPD").getNumberOfReportingStations()), 3, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "WSPD").getUTCDateTimeString()), 3, 5);
+                    } 
+                }
+                
+                if (paramPanel.PRESSelected(e))
+                {
+                    if (statisticsPanel.maxSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "PRES").getStid()), 4, 0);
+                        tablePanel.getTableModel().setTableModel("PRES", 4, 1);
+                        tablePanel.getTableModel().setTableModel("MAXIMUM", 4, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "PRES").getValue()), 4, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "PRES").getNumberOfReportingStations()), 4, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "PRES").getUTCDateTimeString()), 4, 5);
+                    }
+                    
+                    if (statisticsPanel.minSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "PRES").getStid()), 4, 0);
+                        tablePanel.getTableModel().setTableModel("PRES", 4, 1);
+                        tablePanel.getTableModel().setTableModel("MINIMUM", 4, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "PRES").getValue()), 4, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "PRES").getNumberOfReportingStations()), 4, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "PRES").getUTCDateTimeString()), 4, 5);
+                    }
+                    
+                    if (statisticsPanel.avgSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "PRES").getStid()), 4, 0);
+                        tablePanel.getTableModel().setTableModel("PRES", 4, 1);
+                        tablePanel.getTableModel().setTableModel("AVERAGE", 4, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "PRES").getValue()), 4, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "PRES").getNumberOfReportingStations()), 4, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "PRES").getUTCDateTimeString()), 4, 5);
+                    } 
+                }
             }
+            else if (e.getSource() == calculate && flag == false)
+            {
+                //TODO add error message
+            } 
             else if (e.getSource() == exit)
             {
                 System.exit(0);
@@ -233,6 +304,8 @@ public class MesonetFrame extends JFrame
                         System.out.println("Error reading from main file!\n");
                     }
                 }
+                
+                flag = true;
             }
             else if (e.getSource() == exit)
             {

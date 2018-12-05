@@ -64,6 +64,16 @@ public class MapData
 	private String SRAD = "SRAD";
 	
 	/**
+     * String containing SRAD
+     */
+    private String WSPD = "WSPD";
+    
+    /**
+     * String containing SRAD
+     */
+    private String PRES = "PRES";
+	
+	/**
      * String containing STID
      */
 	private String STID = "STID"; 
@@ -197,12 +207,16 @@ public class MapData
 	    ArrayList<Observation> TA9MHeaderData = new ArrayList<Observation>(); 
 	    ArrayList<Observation> TAIRHeaderData = new ArrayList<Observation>(); 
 	    ArrayList<Observation> SRADHeaderData = new ArrayList<Observation>(); 
+	    ArrayList<Observation> WSPDHeaderData = new ArrayList<Observation>();
+	    ArrayList<Observation> PRESSHeaderData = new ArrayList<Observation>();
 	    
 	    //get the position of each parameter 
 	    int TA9MPosition = getIndexOf(TA9M);
 	    int TAIRPosition = getIndexOf(TAIR);
 	    int SRADPosition = getIndexOf(SRAD);
 	    int STIDPosition = getIndexOf(STID);
+	    int WSPDPosition = getIndexOf(WSPD);
+	    int PRESSPosition = getIndexOf(PRES);
 	    
 	    //loop through the file and add each position
 	    for (int i = 0; i < lineData.size(); i++)
@@ -212,22 +226,30 @@ public class MapData
 	        String tair = lineParts[TAIRPosition];
 	        String srad = lineParts[SRADPosition];
 	        String stid = lineParts[STIDPosition];
+	        String wspd = lineParts[WSPDPosition];
+	        String press = lineParts[PRESSPosition];	        
 	        
 	        //convert line data to type Observation
 	        Observation ta9mObservation = new Observation(Double.parseDouble(ta9m), stid);
 	        Observation tairObservation = new Observation(Double.parseDouble(tair), stid);
 	        Observation sradObservation = new Observation(Double.parseDouble(srad), stid);
+	        Observation wspdObservation = new Observation(Double.parseDouble(wspd), stid);
+	        Observation pressObservation = new Observation(Double.parseDouble(press), stid);
         
 	        //add data to array list
 	        TA9MHeaderData.add(ta9mObservation);
 	        TAIRHeaderData.add(tairObservation); 
 	        SRADHeaderData.add(sradObservation);
+	        WSPDHeaderData.add(wspdObservation);
+	        PRESSHeaderData.add(pressObservation);
 	    }
 	    
 	    //add data to hash map
 	    dataCatalog.put(TA9M, TA9MHeaderData);
 	    dataCatalog.put(TAIR, TAIRHeaderData);
 	    dataCatalog.put(SRAD, SRADHeaderData);
+	    dataCatalog.put(WSPD, WSPDHeaderData);
+	    dataCatalog.put(PRES, PRESSHeaderData);
 	}
 	
 	/**
