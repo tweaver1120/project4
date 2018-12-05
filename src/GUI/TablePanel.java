@@ -38,20 +38,35 @@ public class TablePanel extends JPanel
            {"", "", "", "", "", ""},
         };
         
-        public String getColumnName(int column) {
+        public String getColumnName(int column) 
+        {
             return columnID[column];
         }
         
-        public Object getValueAt(int row, int column) {
+        public Object getValueAt(int row, int column) 
+        {
             return cell[row][column];
         }
         
-        public int getColumnCount() {
+        public int getColumnCount() 
+        {
             return columnID.length;
         }
 
-        public int getRowCount() {
+        public int getRowCount() 
+        {
             return cell.length;
-        }       
+        }           
+        
+        public void setTableModel(Object value, int row, int col) 
+        {           
+            cell[row][col] = value;
+            fireTableCellUpdated(row, col);
+        }
     }
+    
+    public TableModel getTableModel()
+    {
+        return tableModel;
+    }    
 }

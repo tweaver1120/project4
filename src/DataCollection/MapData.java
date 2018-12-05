@@ -80,6 +80,11 @@ public class MapData
 	private GregorianCalendar utcDateTime;
 	
 	/**
+	 * Stores the name of a file
+	 */
+	private String fileName;
+	
+	/**
 	 * assigns the positions of tair, ta9m, srad, and stid
 	 * @param inParamStr Checks for errors when parsing the file
 	 */
@@ -234,10 +239,12 @@ public class MapData
 	 */
 	public Statistics getStatistics(StatsType type, String paramId)
     {
+	    calculateStatistics();
+	    
 	    //create tree map
 	    TreeMap<String, Statistics> statsMap = statistics.get(type);
 	    //create statistic 
-	    Statistics stats = (Statistics) statsMap.get(paramId);
+	    Statistics stats = statsMap.get(paramId);
 	       
 	    //Return the statistic
 	    return stats;
@@ -266,20 +273,7 @@ public class MapData
 	public MapData(int year, int month, int day, int hour, int minute, String directory) 
 	{
 		//Location of the file 
-		String path = createFileName(year, month, day, hour, minute, directory); 
-	
-		//Try to read the file
-		try
-		{
-			parseFile(path);   
-		}
-		//Print error message if file can not be read
-		catch(Exception e)
-		{
-			System.out.println("Error reading from file!\n"); 
-		}	
-	
-		calculateStatistics();  	
+		createFileName(year, month, day, hour, minute, directory); 	
 	} 
 	
 	/**
@@ -432,4 +426,36 @@ public class MapData
 		return returnStr;
 	}
 	
+	/**
+     * @param filename
+     *            sets the file name
+     */
+    public void setFileName(String fileName)
+    {
+        this.fileName = fileName;
+    }
+
+    /**
+     * @return filename
+     */
+    public String getFileName()
+    {
+        return this.fileName;
+    }
+	
+    public int[] splitDate(String input)
+    {
+        String inputData = input.replaceAll("(^\\d{4}|\\d{2})(?!$)", "$1.");
+        
+        String[] tempDate = inputData.split("\\.");
+        
+        int[] finalDate = new int[tempDate.length - 2];
+        
+        for (int i = 0; i < tempDate.length - 2; i++)
+        {
+            finalDate[i] = Integer.parseInt(tempDate[i]);
+        }
+        
+        return finalDate;      
+    }
 }
