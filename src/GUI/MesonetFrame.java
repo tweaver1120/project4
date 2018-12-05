@@ -1,11 +1,16 @@
 package GUI;
 import java.awt.BorderLayout;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+
 
 @SuppressWarnings("serial")
 public class MesonetFrame extends JFrame
@@ -39,7 +44,7 @@ public class MesonetFrame extends JFrame
         setVisible(true);
     }
     
-    class BottomPanel extends JPanel
+    class BottomPanel extends JPanel implements ActionListener
     {
         private JButton calculate;
         private JButton exit;
@@ -49,26 +54,61 @@ public class MesonetFrame extends JFrame
             calculate = new JButton("Calculate");
             exit = new JButton("Exit");
             
+            exit.addActionListener(this);
+            
             add(calculate);
             add(exit);
         }
+        
+        public void actionPerformed(ActionEvent e)
+        {
+            
+            if (e.getSource() == calculate)
+            {
+                //TODO calculate depending on which parameters are selected
+            }
+            else if (e.getSource() == exit)
+            {
+                System.exit(0);
+            }             
+        }       
     }
     
-    class TopBarFileMenu extends JMenuBar
+    class TopBarFileMenu extends JMenuBar implements ActionListener
     {
         private JMenu file;
-        private JMenu open;
-        private JMenu exit;        
+        private JMenuItem open;
+        private JMenuItem exit;   
+        private JFileChooser fileChooser;
+        private int option;
         
         public TopBarFileMenu()
         {
             file = new JMenu("File");
-            open = new JMenu("Open Data File");
-            exit = new JMenu("Exit");
+            open = new JMenuItem("Open Data File");
+            exit = new JMenuItem("Exit");
+            
+            open.addActionListener(this);
+            exit.addActionListener(this);
             
             add(file);
             file.add(open);
             file.add(exit);      
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            fileChooser = new JFileChooser();
+            
+            if (e.getSource() == open)
+            {
+                option = fileChooser.showOpenDialog(null);
+            }
+            else if (e.getSource() == exit)
+            {
+                System.exit(0);
+            }
         }
     }
 }
