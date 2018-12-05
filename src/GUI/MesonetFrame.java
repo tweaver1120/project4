@@ -82,7 +82,93 @@ public class MesonetFrame extends JFrame
                         tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "TAIR").getValue()), 0, 3);
                         tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "TAIR").getNumberOfReportingStations()), 0, 4);
                         tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "TAIR").getUTCDateTimeString()), 0, 5);
-                    }                   
+                    }     
+                    
+                    if (statisticsPanel.minSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TAIR").getStid()), 0, 0);
+                        tablePanel.getTableModel().setTableModel("TAIR", 0, 1);
+                        tablePanel.getTableModel().setTableModel("MINIMUM", 0, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TAIR").getValue()), 0, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TAIR").getNumberOfReportingStations()), 0, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TAIR").getUTCDateTimeString()), 0, 5);
+                    } 
+                    
+                    if (statisticsPanel.avgSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TAIR").getStid()), 0, 0);
+                        tablePanel.getTableModel().setTableModel("TAIR", 0, 1);
+                        tablePanel.getTableModel().setTableModel("AVERAGE", 0, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TAIR").getValue()), 0, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TAIR").getNumberOfReportingStations()), 0, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TAIR").getUTCDateTimeString()), 0, 5);
+                    } 
+                }
+                
+                if (paramPanel.TA9MSelected(e))
+                {
+                    if (statisticsPanel.maxSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "TA9M").getStid()), 1, 0);
+                        tablePanel.getTableModel().setTableModel("TA9M", 1, 1);
+                        tablePanel.getTableModel().setTableModel("MAXIMUM", 1, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "TA9M").getValue()), 1, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "TA9M").getNumberOfReportingStations()), 1, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "TA9M").getUTCDateTimeString()), 1, 5);
+                    }
+                    
+                    if (statisticsPanel.minSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TA9M").getStid()), 1, 0);
+                        tablePanel.getTableModel().setTableModel("TA9M", 1, 1);
+                        tablePanel.getTableModel().setTableModel("MINIMUM", 1, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TA9M").getValue()), 1, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TA9M").getNumberOfReportingStations()), 1, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "TA9M").getUTCDateTimeString()), 1, 5);
+                    }
+                    
+                    if (statisticsPanel.avgSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TA9M").getStid()), 1, 0);
+                        tablePanel.getTableModel().setTableModel("TA9M", 1, 1);
+                        tablePanel.getTableModel().setTableModel("AVERAGE", 1, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TA9M").getValue()), 1, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TA9M").getNumberOfReportingStations()), 1, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "TA9M").getUTCDateTimeString()), 1, 5);
+                    } 
+                }
+                
+                if (paramPanel.SRADSelected(e))
+                {
+                    if (statisticsPanel.maxSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "SRAD").getStid()), 2, 0);
+                        tablePanel.getTableModel().setTableModel("SRAD", 2, 1);
+                        tablePanel.getTableModel().setTableModel("MAXIMUM", 2, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "SRAD").getValue()), 2, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "SRAD").getNumberOfReportingStations()), 2, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MAXIMUM, "SRAD").getUTCDateTimeString()), 2, 5);
+                    }
+                    
+                    if (statisticsPanel.minSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "SRAD").getStid()), 2, 0);
+                        tablePanel.getTableModel().setTableModel("SRAD", 2, 1);
+                        tablePanel.getTableModel().setTableModel("MINIMUM", 2, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "SRAD").getValue()), 2, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "SRAD").getNumberOfReportingStations()), 2, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.MINIMUM, "SRAD").getUTCDateTimeString()), 2, 5);
+                    }
+                    
+                    if (statisticsPanel.avgSelected())
+                    {
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "SRAD").getStid()), 2, 0);
+                        tablePanel.getTableModel().setTableModel("SRAD", 2, 1);
+                        tablePanel.getTableModel().setTableModel("AVERAGE", 2, 2);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "SRAD").getValue()), 2, 3);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "SRAD").getNumberOfReportingStations()), 2, 4);
+                        tablePanel.getTableModel().setTableModel((dataInfo.getStatistics(StatsType.AVERAGE, "SRAD").getUTCDateTimeString()), 2, 5);
+                    } 
                 }
             }
             else if (e.getSource() == exit)
