@@ -2,7 +2,6 @@ package GUI;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -100,10 +99,12 @@ public class MesonetFrame extends JFrame
         public void actionPerformed(ActionEvent e)
         {
             fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new java.io.File("C:\\Users\\Owner\\eclipse-workspace\\project4\\data"));
             
             if (e.getSource() == open)
             {
                 option = fileChooser.showOpenDialog(null);
+                //TODO open data file
             }
             else if (e.getSource() == exit)
             {
