@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import DataCollection.MapData;
 import DataCollection.StatsType;
@@ -49,6 +50,16 @@ public class MesonetFrame extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         setVisible(true);
+    }
+       
+    public static void errorMessage()
+    {
+        JOptionPane.showMessageDialog(null, "Please open a file", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+    
+    public static void successMessage()
+    {
+        JOptionPane.showMessageDialog(null, "File successfully opened", "Success", JOptionPane.PLAIN_MESSAGE);
     }
     
     class BottomPanel extends JPanel implements ActionListener
@@ -241,6 +252,7 @@ public class MesonetFrame extends JFrame
             else if (e.getSource() == calculate && flag == false)
             {
                 //TODO add error message
+                errorMessage();
             } 
             else if (e.getSource() == exit)
             {
@@ -300,9 +312,10 @@ public class MesonetFrame extends JFrame
                     }
                     catch(Exception e2)
                     {
-                        e2.printStackTrace();
-                        System.out.println("Error reading from main file!\n");
+                        errorMessage();                      
                     }
+                    
+                    successMessage();
                 }
                 
                 flag = true;
