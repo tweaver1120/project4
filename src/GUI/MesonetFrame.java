@@ -22,7 +22,7 @@ public class MesonetFrame extends JFrame
     
     public MesonetFrame()
     {
-        super("Mesonet");
+        super("Mesonet - Statistics Calculator");
         setLayout(new BorderLayout());
         
         paramPanel = new ParameterPanel();

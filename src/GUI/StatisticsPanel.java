@@ -13,7 +13,7 @@ public class StatisticsPanel extends JPanel
     private JRadioButton minButton = new JRadioButton("MINIMUM");
     private JRadioButton avgButton = new JRadioButton("AVERAGE");
     
-    private ButtonGroup bGroup;
+    private ButtonGroup statsGroup;
     
     public StatisticsPanel()
     {
@@ -27,9 +27,24 @@ public class StatisticsPanel extends JPanel
         add(minButton);
         add(avgButton);
         
-        bGroup = new ButtonGroup();
-        bGroup.add(maxButton);
-        bGroup.add(minButton);
-        bGroup.add(avgButton);      
+        statsGroup = new ButtonGroup();
+        statsGroup.add(maxButton);
+        statsGroup.add(minButton);
+        statsGroup.add(avgButton);      
+    }
+    
+    public boolean maxSelected()
+    {
+        return maxButton.isSelected();
+    }
+    
+    public boolean minSelected()
+    {
+        return minButton.isSelected();
+    }
+    
+    public boolean avgSelected()
+    {
+        return avgButton.isSelected();
     }
 }

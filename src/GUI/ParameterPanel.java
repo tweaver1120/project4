@@ -3,6 +3,7 @@ import java.awt.GridLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class ParameterPanel extends JPanel
@@ -25,7 +26,66 @@ public class ParameterPanel extends JPanel
         add(TA9MBox);
         add(SRADBox);
         add(WSPDBox);
-        add(PRESBox);
-        
+        add(PRESBox);  
     }   
+    
+    public boolean TAIRSelected(ActionEvent e) 
+    {
+        if (TAIRBox.isSelected())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean TA9MSelected(ActionEvent e) 
+    {
+        if (TA9MBox.isSelected())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean SRADSelected(ActionEvent e) 
+    {
+        if (SRADBox.isSelected())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean WSPDSelected(ActionEvent e) 
+    {
+        if (WSPDBox.isSelected())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean PRESSelected(ActionEvent e) 
+    {
+        if (PRESBox.isSelected())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
