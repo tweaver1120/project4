@@ -1,88 +1,73 @@
 {
     "Lab Section": 13,
-    "Last Modified": 2018-10-23,
+    "Last Modified": 2018-12-05,
     "OU ID": 113419433,
     "OU EMAIL": tweaver@ou.edu,
     "Tasks": [
         {
-            "Description": "Initialize hash map, tree map, and enum map",
+            "Description": "Create new GUI classes",
             "Estimated Time (Minutes)": 10,
             "Actual Time (Minutes)": 8
         },
         {
-            "Description": "Create new variables and methods based on UML diagram",
+            "Description": "Create Mesonet Frame",
             "Estimated Time (Minutes)": 15,
             "Actual Time (Minutes)": 13
         },
         {
-            "Description": "Change parseParamHeader method",
+            "Description": "Add Check boxes to Parameter Panel",
             "Estimated Time (Minutes)": 10,
             "Actual Time (Minutes)": 8
         },
         {
-            "Description": "Create getIndexOf method",
+            "Description": "Add Radio Buttons to Statistics Panel",
             "Estimated Time (Minutes)": 15,
             "Actual Time (Minutes)": 14
         },
         {
-            "Description": "Create CalculateAllStatistics method",
+            "Description": "Create Table with rows and column id",
             "Estimated Time (Minutes)": 15,
             "Actual Time (Minutes)": 18
         },
         {
-            "Description": "Create prepareDataCatalog method",
+            "Description": "Add file menue bar",
             "Estimated Time (Minutes)": 15,
             "Actual Time (Minutes)": 25
         },
         {
-            "Description": "Create getStatistics method",
+            "Description": "Program Exit Buttons",
             "Estimated Time (Minutes)": 10,
             "Actual Time (Minutes)": 13
         },
         {
-            "Description": "Change calulateStatistics method",
+            "Description": "Update map data info",
             "Estimated Time (Minutes)": 5,
             "Actual Time (Minutes)": 2
         },
         {
-            "Description": "Change MapData method",
+            "Description": "Add Message box notifications",
             "Estimated Time (Minutes)": 5,
             "Actual Time (Minutes)": 3
         },
         {
-            "Description": "Update parseFile method",
-            "Estimated Time (Minutes)": 10,
-            "Actual Time (Minutes)": 18
+            "Description": "Program Calculate button",
+            "Estimated Time (Minutes)": 30,
+            "Actual Time (Minutes)": 57
         },
         {
-            "Description": "Update toString method",
+            "Description": "Add Additional Statistics to Map Data",
             "Estimated Time (Minutes)": 10,
             "Actual Time (Minutes)": 20
         },
 		{
-            "Description": "Update Statistics constructor",
-            "Estimated Time (Minutes)": 5,
-            "Actual Time (Minutes)": 3
+            "Description": "Add Comments",
+            "Estimated Time (Minutes)": 10,
+            "Actual Time (Minutes)": 15
         },
         {
-            "Description": "Create new Statistics methods",
+            "Description": "Create Java Doc",
             "Estimated Time (Minutes)": 15,
             "Actual Time (Minutes)": 13
-        },
-        {
-            "Description": "Update MapData Tests",
-            "Estimated Time (Minutes)": 20,
-            "Actual Time (Minutes)": 23
-        },
-        {
-            "Description": "Update Statistics Tests",
-            "Estimated Time (Minutes)": 15,
-            "Actual Time (Minutes)": 20
-        },
-        {
-            "Description": "Correct Observation Tests",
-            "Estimated Time (Minutes)": 10,
-            "Actual Time (Minutes)": 7
         },             
     ]
 }

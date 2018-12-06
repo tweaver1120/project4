@@ -17,7 +17,7 @@ import java.util.TreeMap;
  * as well as solar radiation min, max, and average. This is then printed out.
  * 
  * @author Tim Weaver
- * @version 2018-10-28
+ * @version 2018-12-05
  * 
  */
 
@@ -29,7 +29,7 @@ public class MapData
     HashMap<String, ArrayList<Observation>> dataCatalog = new HashMap<String, ArrayList<Observation>>();
     
     /**
-     * Enumerator map that stores the type of stat and a tree map with key string id and value stat 
+     * Enumerator map that stores the type of statistic and a tree map with key string id and value statistic
      */
     EnumMap<StatsType, TreeMap<String, Statistics>> statistics = new EnumMap<>(StatsType.class);
     
@@ -64,25 +64,19 @@ public class MapData
 	private String SRAD = "SRAD";
 	
 	/**
-     * String containing SRAD
+     * String containing WSPD
      */
     private String WSPD = "WSPD";
     
     /**
-     * String containing SRAD
+     * String containing PRES
      */
     private String PRES = "PRES";
 	
 	/**
      * String containing STID
      */
-	private String STID = "STID"; 
-	
-	/**
-	 * Contains the word "Mesonet" which is used
-	 * to identify the station
-	 */
-	private String MESONET = "Mesonet"; 		
+	private String STID = "STID"; 		
 	
 	/**
      * Stores the date 
@@ -367,86 +361,7 @@ public class MapData
 		br.close();
 		
 	    prepareDataCatalog();
-	}
-	
-	/**
-	 * Prints out all of the information gathered and calculated by the program including
-	 * year, month, day, hour, minute, max air temp at 1.5m, min air temp at 1.5m, average air temp at 1.5m,
-	 * max air temp at 9m, min air temp at 9m, average air temp at 9m, max solar radiation, min solar radiation, and average solar radiation
-	 * 
-	 * @return The string representation of the MapData class, formatted as:
-	 * 			 =========================================================
-				 === 2018-08-30 17:45 ===
-				 =========================================================
-				 Maximum Air Temperature[1.5m] = 21.7 C at MEDI 
-				 Minimum Air Temperature[1.5m] = 13.8 C at EVAX 
-				 Average Air Temperature[1.5m] = 18.0 C at Mesonet 
-				 =========================================================
-				 =========================================================
-				 Maximum Air Temperature[9.0m] = 23.3 C at MARE 
-				 Minimum Air Temperature[9.0m] = 15.8 C at COOK 
-				 Average Air Temperature[9.0m] = 19.7 C at Mesonet 
-				 =========================================================
-				 =========================================================
-				 Maximum Solar Radiation[1.5m] = 0.0 W/m^2 at  
-				 Minimum Air Temperature[1.5m] = 0.0 W/m^2 at ACME 
-				 Average Solar Radiation[1.5m] = 0.0 W/m^2 at Mesonet 
-				 =========================================================
-	 * 
-	 */ 
-	public String toString()
-	{ 
-		String lineBreak = createLineBreak();
-				
-		String header = String.format("\n" + "=== " + "%02d-%02d-%02d %02d:%02d:%02d" + " ===" + "\n", 
-				utcDateTime.get(GregorianCalendar.YEAR), utcDateTime.get(GregorianCalendar.MONTH), utcDateTime.get(GregorianCalendar.DAY_OF_MONTH), 
-				utcDateTime.get(GregorianCalendar.HOUR), utcDateTime.get(GregorianCalendar.MINUTE), utcDateTime.get(GregorianCalendar.SECOND)); 
-		String tairMaxStrg = String.format("Maximum Air Temperature[1.5m] = %.1f C at %s \n", 
-				statistics.get(StatsType.MAXIMUM).get(TAIR).getValue(), statistics.get(StatsType.MAXIMUM).get(TAIR).getStid()); 
-		String tairMinStrg = String.format("Minimum Air Temperature[1.5m] = %.1f C at %s \n", statistics.get(StatsType.MINIMUM).get(TAIR).getValue(), 
-		        statistics.get(StatsType.MINIMUM).get(TAIR).getStid());
-		String tairAverageStrg = String.format("Average Air Temperature[1.5m] = %.1f C at %s \n", 
-		        statistics.get(StatsType.AVERAGE).get(TAIR).getValue(), MESONET);
-		String ta9mMaxStrg = String.format("Maximum Air Temperature[9.0m] = %.1f C at %s \n", statistics.get(StatsType.MAXIMUM).get(TA9M).getValue(), 
-		        statistics.get(StatsType.MAXIMUM).get(TA9M).getStid());
-		String ta9mMinStrg = String.format("Minimum Air Temperature[9.0m] = %.1f C at %s \n", statistics.get(StatsType.MINIMUM).get(TA9M).getValue(), 
-		        statistics.get(StatsType.MINIMUM).get(TA9M).getStid()); 
-		String ta9mAverageStrg = String.format("Average Air Temperature[9.0m] = %.1f C at %s \n", 
-		        statistics.get(StatsType.AVERAGE).get(TA9M).getValue(),MESONET);
-		String sradMaxStrg = String.format("Maximum Solar Radiation[1.5m] = %.1f W/m^2 at %s \n", statistics.get(StatsType.MAXIMUM).get(SRAD).getValue(), 
-		        statistics.get(StatsType.MAXIMUM).get(SRAD).getStid());
-		String sradMinStrg = String.format("Minimum Air Temperature[1.5m] = %.1f W/m^2 at %s \n", statistics.get(StatsType.MINIMUM).get(SRAD).getValue(), 
-		        statistics.get(StatsType.MINIMUM).get(SRAD).getStid());
-		String sradAverageStrg = String.format("Average Solar Radiation[1.5m] = %.1f W/m^2 at %s \n", 
-		        statistics.get(StatsType.AVERAGE).get(SRAD).getValue(), MESONET);
-	
-		String format = lineBreak + header + lineBreak + "\n" + tairMaxStrg + tairMinStrg + tairAverageStrg + lineBreak + "\n" + lineBreak
-				+ "\n" + ta9mMaxStrg + ta9mMinStrg + ta9mAverageStrg + lineBreak + "\n" + lineBreak + "\n" + sradMaxStrg + sradMinStrg + 
-				sradAverageStrg + lineBreak;
-		
-		return format;
-	}
-	
-	/**
-	 * Creates a line of 57 "=" signs to separate 
-	 * information for the toString method
-	 * 
-	 * @return "=" 57 times to create a line break
-	 */
-	private String createLineBreak()
-	{
-	    //declare variable
-		String returnStr = "";
-		
-		//loop though 57 times
-		for (int i = 0; i < 57; i++)
-		{
-			returnStr += "=";
-		}
-		
-		//return 57 "=" 
-		return returnStr;
-	}
+	}	
 	
 	/**
      * @param filename
@@ -465,6 +380,11 @@ public class MapData
         return this.fileName;
     }
 	
+    /**
+     * Splits the date into an array 
+     * @param input
+     * @return finalDate An integer array with every component of the date
+     */
     public int[] splitDate(String input)
     {
         String inputData = input.replaceAll("(^\\d{4}|\\d{2})(?!$)", "$1.");
